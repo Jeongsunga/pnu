@@ -12,7 +12,12 @@ public class userDAOImpl extends EgovAbstractMapper implements UserDAO{
 	public String selectPwd(String userId) {
 		return selectOne("User.selectPwd", userId);
 	}
-
+	
+	@Override
+	public String selectUsed(String userId) {
+		return selectOne("User.selectUsed", userId);
+	}
+	
 	@Override
 	public int insertUser(UserVO user) {
 		return insert("User.insertUser", user);
@@ -21,6 +26,16 @@ public class userDAOImpl extends EgovAbstractMapper implements UserDAO{
 	@Override
 	public UserVO selectUserInfo(String userId) {
 		return selectOne("User.selectUserInfo", userId);
+	}
+
+	@Override
+	public int updateUser(UserVO user) {
+		return update("User.updateUser", user);
+	}
+
+	@Override
+	public int deleteUser(String userId) {
+		return update("User.deleteUser", userId);
 	}
 	
 }
